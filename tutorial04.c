@@ -23,8 +23,8 @@
 #include <libswscale/swscale.h>
 #include <libavutil/avstring.h>
 
-#include <SDL.h>
-#include <SDL_thread.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_thread.h>
 
 #ifdef __MINGW32__
 #undef main /* Prevents SDL from overriding main() */
@@ -525,7 +525,7 @@ int stream_component_open(VideoState *is, int stream_index) {
             is->video_st->codec->pix_fmt,
             is->video_st->codec->width,
             is->video_st->codec->height,
-            PIX_FMT_YUV420P, 
+            AV_PIX_FMT_YUV420P, 
             SWS_BILINEAR, 
             NULL, 
             NULL, 
